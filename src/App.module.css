@@ -1,0 +1,12 @@
+.container {
+  padding: 16px;
+  border: 1px solid gray;
+}
+
+.label {
+  font-weight: 600;
+}
+
+.button {
+  margin-left: 10px;
+}
