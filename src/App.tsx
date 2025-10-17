@@ -1,6 +1,6 @@
 import cssClasses from "./App.module.css"
-import { useAppDispatch, useAppSeletor } from "./state/store"
-import { increment } from "./state/counter-slice"
+import { useAppDispatch, useAppSeletor } from "./store/store"
+import { increment } from "./store/counter-slice"
 
 export const App = () => {
   const dispatch = useAppDispatch()
