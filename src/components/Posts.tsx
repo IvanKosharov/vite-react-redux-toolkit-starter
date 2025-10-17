@@ -1,10 +1,12 @@
 import cssClasses from "./Posts.module.css"
 import { useAppDispatch, useAppSeletor } from "../store/store"
 import { fetchPosts } from "../store/posts/thunks"
+import { fetchingPostsSelector, postsSelector } from "../store/posts/selectors"
 
 export const Posts = () => {
   const dispatch = useAppDispatch()
-  const { fetching, posts } = useAppSeletor((state) => state.posts)
+  const posts = useAppSeletor(postsSelector)
+  const fetching = useAppSeletor(fetchingPostsSelector)
 
   return (
     <div className={cssClasses.container}>

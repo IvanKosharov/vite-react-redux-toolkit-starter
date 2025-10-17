@@ -1,10 +1,11 @@
 import cssClasses from "./Counter.module.css"
 import { useAppDispatch, useAppSeletor } from "../store/store"
 import { increment, incrementBy } from "../store/counter/slice"
+import { countSelector } from "../store/counter/selectors"
 
 export const Counter = () => {
   const dispatch = useAppDispatch()
-  const count = useAppSeletor((state) => state.counter.value)
+  const count = useAppSeletor(countSelector)
 
   return (
     <div className={cssClasses.container}>
