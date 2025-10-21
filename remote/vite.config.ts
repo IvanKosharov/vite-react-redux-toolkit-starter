@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from "vite"
 import react from "@vitejs/plugin-react"
 import { federation } from "@module-federation/vite"
 import { dependencies } from "./package.json"
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js"
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "")
@@ -21,6 +22,11 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
+      cssInjectedByJsPlugin({
+        // This ensures styles are injected when the main remote entry is loaded
+        jsAssetsFilterFunction: (outputChunk) =>
+          outputChunk.fileName === "remoteEntry.js"
+      }),
       federation({
         name: "someRemote",
         filename: "remoteEntry.js",
