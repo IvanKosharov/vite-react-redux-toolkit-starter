@@ -1,13 +1,17 @@
 import React from "react"
 import {
-  DevicesActions,
+  devicesReducer,
+  initialDevicesState,
   setDevicesAction,
   toggleLoadingAction
 } from "./Devices.reducer"
 
-export const useDevices = (
-  dispatch: React.ActionDispatch<[action: DevicesActions]>
-) => {
+export const useDevices = () => {
+  const [{ devices, loading }, dispatch] = React.useReducer(
+    devicesReducer,
+    initialDevicesState
+  )
+
   React.useEffect(() => {
     const getData = async () => {
       dispatch(toggleLoadingAction(true))
@@ -19,4 +23,6 @@ export const useDevices = (
 
     getData()
   }, [])
+
+  return { devices, loading }
 }

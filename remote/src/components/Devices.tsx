@@ -1,16 +1,9 @@
-import React from "react"
 import cssClasses from "./Devices.module.css"
-import { Device } from "../types"
 import { useDevices } from "./Devices.hooks"
-import { devicesReducer, initialDevicesState } from "./Devices.reducer"
+import { Device } from "../types"
 
 export const Devices = () => {
-  const [{ devices, loading }, dispatch] = React.useReducer(
-    devicesReducer,
-    initialDevicesState
-  )
-
-  useDevices(dispatch)
+  const { devices, loading } = useDevices()
 
   return (
     <div className={cssClasses.root}>

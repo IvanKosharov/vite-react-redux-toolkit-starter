@@ -1,31 +1,36 @@
 import { Device } from "../types"
 
-export interface DevicesState {
-  devices: Device[]
-  loading: boolean
+enum DEVICES_ACTION_TYPES {
+  SET_DEVICES,
+  TOGGLE_LOADING
 }
 
 type SetDevicesAction = {
-  type: "SET_DEVICES"
+  type: DEVICES_ACTION_TYPES.SET_DEVICES
   payload: Device[]
 }
 
 type ToggleLoadingAction = {
-  type: "TOGGLE_LOADING"
+  type: DEVICES_ACTION_TYPES.TOGGLE_LOADING
   payload: boolean
 }
 
 export type DevicesActions = SetDevicesAction | ToggleLoadingAction
 
 export const setDevicesAction = (devices: Device[]): SetDevicesAction => ({
-  type: "SET_DEVICES",
+  type: DEVICES_ACTION_TYPES.SET_DEVICES,
   payload: devices
 })
 
 export const toggleLoadingAction = (loading: boolean): ToggleLoadingAction => ({
-  type: "TOGGLE_LOADING",
+  type: DEVICES_ACTION_TYPES.TOGGLE_LOADING,
   payload: loading
 })
+
+export interface DevicesState {
+  devices: Device[]
+  loading: boolean
+}
 
 export const initialDevicesState: DevicesState = {
   devices: [],
@@ -34,9 +39,9 @@ export const initialDevicesState: DevicesState = {
 
 export const devicesReducer = (state: DevicesState, action: DevicesActions) => {
   switch (action.type) {
-    case "SET_DEVICES":
+    case DEVICES_ACTION_TYPES.SET_DEVICES:
       return { ...state, devices: action.payload }
-    case "TOGGLE_LOADING":
+    case DEVICES_ACTION_TYPES.TOGGLE_LOADING:
       return { ...state, loading: action.payload }
     default:
       return state
