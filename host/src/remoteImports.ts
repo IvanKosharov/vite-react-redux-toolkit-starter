@@ -1,1 +1,1 @@
-export const importRemoteButton = () => import("someRemote/RemoteButton")
+export const importDevices = () => import("someRemote/Devices")

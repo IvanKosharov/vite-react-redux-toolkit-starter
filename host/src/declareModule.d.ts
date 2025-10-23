@@ -1,1 +1,1 @@
-declare module "someRemote/RemoteButton"
+declare module "someRemote/Devices"

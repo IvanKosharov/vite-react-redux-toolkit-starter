@@ -33,4 +33,5 @@ const postsSlice = createSlice({
 
 export const { fetchPostsRequest, fetchPostsSuccess, fetchPostsError } =
   postsSlice.actions
+
 export default postsSlice.reducer
