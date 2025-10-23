@@ -1,11 +1,11 @@
-import { NavLink } from "react-router"
+import { Link } from "react-router"
 import cssClasses from "./NavBar.module.css"
 
 export const NavBar = () => {
   return (
     <div className={cssClasses.root}>
-      <NavLink to="/posts">Posts</NavLink>
-      <NavLink to="/remote-button">Remote button</NavLink>
+      <Link to="/posts">Posts</Link>
+      <Link to="/remote-button">Remote button</Link>
     </div>
   )
 }

@@ -4,9 +4,9 @@
   border-bottom: 1px solid gray;
   padding: 12px 0px;
   margin-bottom: 6px;
-}
 
-.root a {
-  padding: 0px 16px;
-  border-right: 1px solid gray;
+  a {
+    padding: 0px 16px;
+    border-right: 1px solid gray;
+  }
 }
