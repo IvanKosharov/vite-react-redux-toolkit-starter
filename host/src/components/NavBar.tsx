@@ -5,6 +5,7 @@ export const NavBar = () => {
   return (
     <div className={cssClasses.root}>
       <Link to="/posts">Posts</Link>
+      <Link to="/transitions">Transitions</Link>
       <Link to="/devices">Devices</Link>
     </div>
   )

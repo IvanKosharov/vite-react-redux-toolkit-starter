@@ -31,7 +31,8 @@ export default defineConfig(({ mode }) => {
         name: "someRemote",
         filename: "remoteEntry.js",
         exposes: {
-          "./Devices": "./src/components/Devices.tsx"
+          "./Devices": "./src/components/Devices.tsx",
+          "./Transitions": "./src/components/Transitions.tsx"
         },
         shared: {
           react: {
